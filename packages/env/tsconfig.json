@@ -1,0 +1,3 @@
+{
+  "extends": "@better-tahoma/config/tsconfig.base.json"
+}
