@@ -14,6 +14,8 @@
     "@better-tahoma/auth": "workspace:*",
     "@better-tahoma/db": "workspace:*",
     "@better-tahoma/env": "workspace:*",
+    "@better-tahoma/somfy": "workspace:*",
+    "drizzle-orm": "catalog:",
     "@trpc/client": "catalog:",
     "@trpc/server": "catalog:",
     "dotenv": "catalog:",
@@ -21,6 +23,7 @@
   },
   "devDependencies": {
     "@better-tahoma/config": "workspace:*",
-    "typescript": "catalog:"
+    "typescript": "catalog:",
+    "hono": "catalog:"
   }
 }

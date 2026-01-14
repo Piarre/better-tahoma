@@ -10,7 +10,7 @@
     }
   },
   "scripts": {
-    "db:local": "turso dev --db-file local.db",
+    "db:local": "tursodb dev --db-file local.db",
     "db:push": "drizzle-kit push",
     "db:generate": "drizzle-kit generate",
     "db:studio": "drizzle-kit studio",
@@ -20,8 +20,9 @@
     "@better-tahoma/env": "workspace:*",
     "@libsql/client": "catalog:",
     "dotenv": "catalog:",
-    "drizzle-orm": "^0.45.1",
+    "drizzle-orm": "catalog:",
     "libsql": "catalog:",
+    "uuid": "^13.0.0",
     "zod": "catalog:"
   },
   "devDependencies": {

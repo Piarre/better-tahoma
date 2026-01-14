@@ -1,76 +1,75 @@
 {
-  "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
-  "vcs": {
-    "enabled": false,
-    "clientKind": "git",
-    "useIgnoreFile": false
-  },
-  "files": {
-    "ignoreUnknown": false,
-    "includes": [
-      "**",
-      "!**/.next",
-      "!**/dist",
-      "!**/.turbo",
-      "!**/dev-dist",
-      "!**/.zed",
-      "!**/.vscode",
-      "!**/routeTree.gen.ts",
-      "!**/src-tauri",
-      "!**/.nuxt",
-      "!bts.jsonc",
-      "!**/.expo",
-      "!**/.wrangler",
-      "!**/.alchemy",
-      "!**/.svelte-kit",
-      "!**/wrangler.jsonc",
-      "!**/.source",
-      "!**/convex/_generated"
-    ]
-  },
+  "$schema": "https://biomejs.dev/schemas/2.3.10/schema.json",
+  "vcs": { "enabled": true, "clientKind": "git", "useIgnoreFile": true },
+  "files": { "ignoreUnknown": false },
   "formatter": {
     "enabled": true,
-    "indentStyle": "tab"
+    "formatWithErrors": false,
+    "indentStyle": "space",
+    "indentWidth": 4,
+    "lineEnding": "lf",
+    "lineWidth": 90,
+    "attributePosition": "auto",
+    "bracketSameLine": false,
+    "bracketSpacing": true,
+    "expand": "auto",
+    "useEditorconfig": true,
+    "includes": ["**", "!./dist", "!./coverage", "!./.nx/cache", "!./.nx/workspace-data"]
   },
-  "assist": { "actions": { "source": { "organizeImports": "on" } } },
   "linter": {
-    "enabled": true,
+    "enabled": false,
     "rules": {
       "recommended": true,
+      "style": {
+        "useImportType": "off",
+        "useConst": { "level": "warn", "fix": "none" }
+      },
       "correctness": {
-        "useExhaustiveDependencies": "info"
+        "noUnusedVariables": { "level": "warn", "fix": "safe" },
+        "noUnusedPrivateClassMembers": "off"
       },
       "nursery": {
-        "useSortedClasses": {
-          "level": "warn",
-          "fix": "safe",
-          "options": {
-            "functions": ["clsx", "cva", "cn"]
-          }
-        }
+        "useSortedClasses": { "level": "warn", "fix": "safe" }
       },
-      "style": {
-        "noParameterAssign": "error",
-        "useAsConstAssertion": "error",
-        "useDefaultParameterLast": "error",
-        "useEnumInitializers": "error",
-        "useSelfClosingElements": "error",
-        "useSingleVarDeclarator": "error",
-        "noUnusedTemplateLiteral": "error",
-        "useNumberNamespace": "error",
-        "noInferrableTypes": "error",
-        "noUselessElse": "error"
+      "complexity": {
+        "noUselessConstructor": "off"
+      },
+      "suspicious": {
+        "noExplicitAny": "info"
       }
+    }
+  },
+  "assist": {
+    "enabled": true,
+    "actions": {
+      "source": { "organizeImports": "on", "recommended": true }
     }
   },
   "javascript": {
     "formatter": {
-      "quoteStyle": "double"
+      "jsxQuoteStyle": "double",
+      "quoteProperties": "asNeeded",
+      "trailingCommas": "es5",
+      "semicolons": "always",
+      "arrowParentheses": "always",
+      "lineWidth": 90,
+      "quoteStyle": "double",
+      "enabled": true
+    },
+    "parser": {
+      "unsafeParameterDecoratorsEnabled": true
     }
   },
-  "css": {
+  "html": {
+    "formatter": {
+      "indentScriptAndStyle": false,
+      "selfCloseVoidElements": "always",
+      "indentWidth": 2,
+      "lineWidth": 120
+    },
     "parser": {
-      "tailwindDirectives": true
-    }
+      "interpolation": true
+    },
+    "experimentalFullSupportEnabled": true
   }
 }
