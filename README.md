@@ -1,84 +1,60 @@
-# better-tahoma
+# Better Tahoma
 
-This project was created with [Better-T-Stack](https://github.com/AmanVarshney01/create-better-t-stack), a modern TypeScript stack that combines React, TanStack Router, Hono, TRPC, and more.
+A modern application for managing and controlling Somfy Tahoma devices.
 
-## Features
+## Overview
 
-- **TypeScript** - For type safety and improved developer experience
-- **TanStack Router** - File-based routing with full type safety
-- **TailwindCSS** - Utility-first CSS for rapid UI development
-- **shadcn/ui** - Reusable UI components
-- **Hono** - Lightweight, performant server framework
-- **tRPC** - End-to-end type-safe APIs
-- **Bun** - Runtime environment
-- **Drizzle** - TypeScript-first ORM
-- **SQLite/Turso** - Database engine
-- **Authentication** - Better-Auth
-- **Biome** - Linting and formatting
-- **Husky** - Git hooks for code quality
-- **Turborepo** - Optimized monorepo build system
+Fullstack monorepo for Somfy device management with a modern web interface.
+
+## Structure
+
+### Apps
+
+- **web** - Main React app with TanStack Router
+- **fumadocs** - Project documentation
+- **server** - Backend server with Hono & tRPC
+
+### Packages
+
+- **api** - tRPC routes
+- **auth** - Authentication (Better Auth)
+- **db** - Database schemas (Drizzle ORM)
+- **somfy** - Somfy API client
+- **config** - Shared configuration
+- **types** - Shared TypeScript types
+- **env** - Environment validation
 
 ## Getting Started
 
-First, install the dependencies:
-
 ```bash
 bun install
+bun dev
 ```
 
-## Database Setup
+## Tech Stack
 
-This project uses SQLite with Drizzle ORM.
+- React, TanStack Router, Vite
+- Hono, tRPC
+- LibSQL, Drizzle ORM
+- Better Auth
+- shadcn/ui, Tailwind CSS
+- Turborepo, Biome
 
-1. Start the local SQLite database (optional):
+---
 
-```bash
-bun run db:local
-```
+## Roadmap
 
-2. Update your `.env` file in the `apps/server` directory with the appropriate connection details if needed.
+### Upcoming
 
-3. Apply the schema to your database:
+- [ ] Use the full API from overkiz to interact with the user's account and devices
+- [ ] Auth with better-auth
+- [ ] Start a scene configured from the app
+- [ ] User settings (be able to reset the app, change themes, etc.)
+- [ ] Improve UI/UX with more components and better design
+- [ ] Get the room color from the api (not that usefull but nice to have)
 
-```bash
-bun run db:push
-```
+### In Progress
 
-Then, run the development server:
-
-```bash
-bun run dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) in your browser to see the web application.
-The API is running at [http://localhost:3000](http://localhost:3000).
-
-## Git Hooks and Formatting
-
-- Initialize hooks: `bun run prepare`
-- Format and lint fix: `bun run check`
-
-## Project Structure
-
-```
-better-tahoma/
-├── apps/
-│   ├── web/         # Frontend application (React + TanStack Router)
-│   └── server/      # Backend API (Hono, TRPC)
-├── packages/
-│   ├── api/         # API layer / business logic
-│   ├── auth/        # Authentication configuration & logic
-│   └── db/          # Database schema & queries
-```
-
-## Available Scripts
-
-- `bun run dev`: Start all applications in development mode
-- `bun run build`: Build all applications
-- `bun run dev:web`: Start only the web application
-- `bun run dev:server`: Start only the server
-- `bun run check-types`: Check TypeScript types across all apps
-- `bun run db:push`: Push schema changes to database
-- `bun run db:studio`: Open database studio UI
-- `bun run db:local`: Start the local SQLite database
-- `bun run check`: Run Biome formatting and linting
+- [x] Implement device control features (open/close, set position, etc.)
+- [x] Sidebar fully functional with navigation
+- [x] Basic device listing and status display with rooms
